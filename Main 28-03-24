@@ -1,0 +1,51 @@
+import time
+import turtle
+#Variables. a to c are side lengths, A and B are the acute angles of the RAT.
+a=0.0
+b=0.0
+c=0.0
+A=0.0
+B=0.0
+end = False # used so that the program can break the larger while loop after breaking a smaller one.
+print("Instructions")
+while True:
+
+    while True:
+        a = str(input("Enter side length a: "))
+        try:
+            float(a)
+            str(a)
+            print("Congrats, you can enter numbers. a =", a)
+            float(a)
+            break
+        except ValueError:
+            print("Invalid input, answer a number.")
+        if "end" in a:
+            print("Ending program...")
+            end = True
+            break
+    
+    if end == True:
+        break
+
+    while True:
+        b = str(input("Enter side length b: "))
+        try:
+            float(b)
+            str(b)
+            print("Congrats, you can enter numbers. b =", b)
+            float(b)
+            break
+        except ValueError:
+            print("Invalid input, answer a number.")
+        if "end" in b:
+            print("Ending program...")
+            end = True
+            break
+
+    if end == True:
+        break
+
+    break
+print("Program finished.")
+time.sleep(100) # keeps the window from closing if program is run from file
