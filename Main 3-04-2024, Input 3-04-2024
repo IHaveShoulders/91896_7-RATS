@@ -32,11 +32,13 @@ while True:
                 float(list[j])
                 break
             except ValueError:
-                print("Invalid input, answer a number.")
-            if "end" in list[j]:
-                print("Ending program...")
-                end = True
-                break
+                if "end" in list[j]:
+                    print("Ending program...")
+                    end = True
+                    break
+                else:
+                    print("Invalid input, answer a number.")
+
         if end == True:
             break
 
