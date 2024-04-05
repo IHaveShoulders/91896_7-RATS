@@ -1,0 +1,35 @@
+import time
+import random
+a=1.0 #Variables are preset here to demonstrate the component
+b=0.0
+c=0.0
+A=7.0
+B=8.0
+
+list=[a,b,c,A,B]
+choosingPool=[]
+i = 0
+controlVarA = float(0.0)
+controlVarB = float(0.0)
+
+while True:
+
+    for i in range (i,5):
+        if list[i] != 0.0:
+            choosingPool.append(list[i])
+    i = 0
+
+
+    controlVarA = choosingPool[random.randint(0,len(choosingPool)-1)]
+    print(controlVarA)
+
+    controlVarB = choosingPool[random.randint(0,len(choosingPool)-1)]
+    print(controlVarB)
+
+
+    if (controlVarA == A and controlVarB == B) or (controlVarA == B and controlVarB == A) or (controlVarA == controlVarB): #chews out values that shouldn't be together
+        print("These two variables can't be used. reshuffling...")
+        print("")
+    else:
+        break
+
