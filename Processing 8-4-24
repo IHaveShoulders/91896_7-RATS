@@ -1,0 +1,62 @@
+import time
+import math
+import random
+a=1.0 #Variables are preset here to demonstrate the component
+b=2.0
+c=0.0
+d=0.0 # angle values renamed d and e because python treats capital letters as unchangeable constants.
+e=0.0
+
+list=[a,b,c,d,e]
+choosingPool=[]
+i = 0
+controlVarA = float(0.0)
+controlVarB = float(0.0)
+
+while True:
+
+    for i in range (i,5):
+        if list[i] != 0.0:
+            choosingPool.append(list[i])
+    i = 0
+
+
+    controlVarA = choosingPool[random.randint(0,len(choosingPool)-1)]
+    print(controlVarA)
+
+    controlVarB = choosingPool[random.randint(0,len(choosingPool)-1)]
+    print(controlVarB)
+
+
+    if (controlVarA == d and controlVarB == e) or (controlVarA == e and controlVarB == d) or (controlVarA == controlVarB):
+        print("These two variables can't be used. reshuffling...")
+        print("")
+    else:
+        break
+
+if controlVarA == a and controlVarB == b:
+    c = (a**2.0 + b**2.0)**0.5
+    print("c = (a^2 + b^2)^0.5 ")
+    d = math.degrees(math.asin(b/c))
+    print("A = asin(b/c)")
+    e = 90 - d #easier way to do it already having d
+    print("B = 90 - A")
+elif controlVarA == b and controlVarB == a:
+    c = (a**2 + b**2)**0.5
+    print("c = (a^2 + b^2)^0.5 ")
+    d = math.degrees(math.asin(b/c))
+    print("A = asin(b/c)")
+    e = 90 - d 
+    print("B = 90 - A")
+
+
+print("---RAT-VALUES---")
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+
+
+
+time.sleep(56)
