@@ -1,0 +1,18 @@
+# Memory 6-05-24
+#Just testing component on its own file because main.py no work
+
+import random
+import time
+index = ["chuck","remy","jerrry","stuart"]
+rat_name = "nil"
+rat_names = ["Example"]
+rat_values = ["a = 3.0, b = 4.0, c = 5.0, A = 53.13010235415599, B = 36.86989764584401"]
+rat_amt = 0
+
+
+while True:
+    i = random.randint(0,3)
+    rat_amt += 1
+    rat_name = index[i] + str(rat_amt)
+    print("This RAT's name: ", rat_name )
+    time.sleep(0.5)
