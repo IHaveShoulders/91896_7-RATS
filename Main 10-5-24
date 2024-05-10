@@ -1,0 +1,430 @@
+#Main 10/05/2024
+import time
+import math
+import random
+import turtle
+index = ["chuck","remy","jerry","stuart"]
+rat_name = "nil"
+rat_names = ["Example"]
+rat_values_a = ["3.0"] # "a = 3.0, b = 4.0, c = 5.0, A = 53.13010235415599, B = 36.86989764584401"
+rat_values_b = ["4.0"]
+rat_values_c = ["5.0"]
+rat_values_d = ["53.13010235415599"]
+rat_values_e = ["36.86989764584401"]
+rat_amt = 0
+buffer = float(0.5) # Used to make program look as if it's thinking slower than it really is.
+
+print("Fullscreen me!",end='\r')
+time.sleep(3)
+print("    .:'/*/'`:,·:~·–:.,                        ,.-:~:-.                     ,.-~·-.,__,.-::^·- .,'   ‘                  __  '        ")
+time.sleep(buffer)
+print("   /::/:/:::/:::;::::::/`':.,'                /':::::::::'`,                 /:::::::::::::::::::::::::/'; '            ,·:'´/::::/'`;·.,    ")
+time.sleep(buffer)
+print(" /·*'`·´¯'`^·-~·:–-'::;:::'`;             /;:-·~·-:;':::',              /;:·–– :;:::::_ ;: – .,/::;i'‘        .:´::::/::::/:::::::`; ")
+time.sleep(buffer)
+print("'|                       '`;::'i‘         ,'´          '`:;::`,           /´          ¯¯           ';::/         /:;:· '´ ¯¯'`^·-;::::/' ‘")
+time.sleep(buffer)
+print("  '`;        ,– .,        'i:'/         /                `;::|        ,:                          ,:/          /·´           _   '`;/‘   ")
+time.sleep(buffer)
+print("    i       i':/:::';       ;/'        ,'                   '`,::;      ';_,..–-.,_     _    _,.·´‘          'i            ;::::'`;*     ")
+time.sleep(buffer)
+print("    i       i/:·'´       ,:''         i'       ,';´'`;         '|:::', ‘           ,·´'    '`·;'i¯                  `;           '`;:::::'`:,  ")
+time.sleep(buffer)
+print("     '; '    ,:,     ~;'´:::'`:,    ,'        ;' /´:`';         ';:::'i‘           i         'i:i'       ’             `·,           '`·;:::::';")
+time.sleep(buffer)
+print("     'i      i:/|       `;::::/:'`;' ;        ;/:;::;:';         ',:::;           ';        ';:i'     ’             ,~:-'`·,           `:;::/'")
+time.sleep(buffer)
+print("      ;     ;/   |       '`:/::::/''i        '´        `'         'i::'/            i        i:/'                  /:::::::::';           ';/  ")
+time.sleep(buffer)
+print("      ';   ,'       |         '`;/' ¦       '/`' *^~-·'´|         ';'/'‚             ;      i/    °             ,:~·- . -·'´          ,'´    ")
+time.sleep(buffer)
+print("       `'*´          '`~·-·^'´    '`., .·´              `·.,_,.·´  ‚                  |   '/'                '`·,               , ·'´      ")
+time.sleep(buffer)
+print("                                                                                        ¯           °             '`*^·–·^*'´'           ‘       v.10.5.24")
+time.sleep(buffer)
+
+
+
+def whisker():
+    turtle.left(20)
+    turtle.pensize(10)
+    turtle.forward(50)
+    turtle.backward(50)
+    turtle.right(20)
+    turtle.forward(50)
+    turtle.backward(50)
+    turtle.right(20)
+    turtle.forward(50)
+    turtle.backward(50)
+    turtle.left(20)
+    turtle.pensize(2)
+print("")
+print("  |  |                  |                           ")
+time.sleep(buffer)
+print("  __ |   _ | | |  | /    _|   _ |   |  | (_-<   -_) ")
+time.sleep(buffer)
+print(" _| _| |___/  |_/|_/   |__| |___/  |_,_| ___/ |___| ")
+time.sleep(buffer)
+print("")
+print("Input the known values of the triangle you want to solve. If you don't know the value of a length, input 0. angle A is opposite side b, and angle B is opposite side a.")
+print("")
+prev_heading = 0.0
+
+def draw(a,b,c,d,e):
+    turtle.clear()
+    turtle.fillcolor("lightgrey")
+    turtle.goto(0,0)
+    turtle.speed(10)
+    if a>b or a == b:
+        turtle.pensize(2)
+        turtle.penup()
+        turtle.goto(-200,-200)
+        turtle.pendown()
+        turtle.begin_fill()
+        turtle.forward(400)
+        turtle.left(90)
+        turtle.forward((b/a)*400)
+        turtle.left(180-e)
+        turtle.forward((c/a)*400)
+        turtle.end_fill()
+        turtle.left(e+90)
+        # Rat facial features go here
+        turtle.forward(400 - (((b/a)*400)/5)) # Square angle marker
+        turtle.left(90)
+        turtle.forward((((b/a)*400)/5)) # (((a/b)*400)/5) = A fifth of side a's pixel length
+        turtle.right(90)
+        turtle.forward((((b/a)*400)/5))
+        turtle.right(90)
+        turtle.forward((((b/a)*400)/5))
+        turtle.right(90)
+        turtle.forward(400) 
+        turtle.pensize(50) #Nose
+        turtle.forward(1)
+        turtle.pensize(2)
+        turtle.backward(1) 
+        whisker()   # Whiskers
+        turtle.right(180)
+        whisker()
+        turtle.left(180)
+        turtle.right(180 - d) # Eyes
+        turtle.forward((((c/a)*400)/2))
+        turtle.setheading(0)
+        turtle.penup()
+        turtle.forward(50)
+        turtle.pendown()
+        turtle.pensize(25)
+        prev_heading = turtle.heading()
+        turtle.setheading(90)
+        turtle.forward(50)
+        turtle.pensize(2)
+        turtle.backward(50)
+        turtle.setheading(prev_heading)
+        turtle.penup()
+        turtle.backward(100)
+        turtle.pendown()
+        prev_heading = turtle.heading()
+        turtle.setheading(90)
+        turtle.forward(50)
+        turtle.pensize(25)
+        turtle.backward(50)
+        turtle.setheading(prev_heading)
+        turtle.pensize(2)
+        turtle.penup()
+
+
+
+
+
+    if b>a:
+        turtle.pensize(2)
+        turtle.penup()
+        turtle.goto(200,200)
+        turtle.pendown()
+        turtle.begin_fill()
+        turtle.right(90)
+        turtle.forward(400)
+        turtle.right(90)
+        turtle.forward((a/b)*400)
+        turtle.right(180-d)
+        turtle.forward((c/b)*400)
+        turtle.end_fill()
+        turtle.right(d)
+        # Rat facial features go here
+        turtle.right(90) #Square angle marking
+        turtle.forward(400 - (((a/b)*400)/5))
+        turtle.right(90)
+        turtle.forward((((a/b)*400)/5)) # (((a/b)*400)/5) = A fifth of side a's pixel length
+        turtle.left(90)
+        turtle.forward((((a/b)*400)/5))
+        turtle.right(90)
+        turtle.forward(((a/b)*400)-(((a/b)*400)/5))
+        turtle.pensize(50) #Nose
+        turtle.forward(1)
+        turtle.pensize(2)
+        turtle.backward(1)
+        whisker()   # Whiskers
+        turtle.right(180)
+        whisker()
+        turtle.left(180)
+        turtle.right(180 - d) # Eyes 
+        turtle.forward((((c/b)*400)/2))
+        turtle.setheading(0)
+        turtle.penup()
+        turtle.forward(50)
+        turtle.pendown()
+        turtle.pensize(25)
+        prev_heading = turtle.heading()
+        turtle.setheading(90)
+        turtle.forward(50)
+        turtle.pensize(2)
+        turtle.backward(50)
+        turtle.setheading(prev_heading)
+        turtle.penup()
+        turtle.backward(100)
+        turtle.pendown()
+        prev_heading = turtle.heading()
+        turtle.setheading(90)
+        turtle.forward(50)
+        turtle.pensize(25)
+        turtle.backward(50)
+        turtle.setheading(prev_heading)
+        turtle.pensize(2)
+        turtle.penup()
+
+
+
+
+
+while True: # I love while loops, fight me
+
+    #Variables. a to c are side lengths, A and B are the acute angles of the RAT.
+    a=0.0
+    b=0.0
+    c=0.0
+    d=0.0 # This is angle A, python doesn't like capital letters for variables though.
+    e=0.0 # This is angle B.
+    controlLetter1 = "none"
+    controlLetter2 = "none"
+    list=[0.0,0.0,0.0,0.0,0.0] 
+    displayList=["a","b","c","A","B"]
+    nonZeroList = []
+    i=0.0
+    j=-1 
+    strikes=0 #Four strikes, and the RAT is insolveable.
+    nonZeroCounter = 0 # adds one whenever a variable is given a non-zero value. stops asking for input when counter reaches two.
+    end = False # used so that the program can break the larger while loop after breaking a smaller one.
+
+    # --INPUT--
+    print("")
+    print("--Enter data here--")
+    strikes = 0
+    j=-1
+    for i in list: #Input module made more compact from 28/03 to 3/04 by going through and changing each value in a for loop.
+        
+        j+=1
+        if nonZeroCounter != 2:
+            while True:
+                list[j] = str(input("enter value " + displayList[j] + ": "))
+                try:
+                    list[j] = float(list[j]) #checks if value can be a float, if not, Valuerror will happen.
+                    if list[j] != 0.0:
+                        nonZeroCounter += 1
+                        if "none" in controlLetter1:
+                            controlLetter1 = str(displayList[j])
+                        else:
+                            controlLetter2 = str(displayList[j])                                     
+                    break
+                except ValueError:
+                    if "end" in list[j]:
+                        print("ending program...")
+                        end = True
+                        break
+                    else:
+                        print("Invalid input, answer a number.")
+                        continue
+
+
+
+        if end == True:
+            break
+
+    if end == True:
+        break
+
+    a=float(list[0])
+    b=float(list[1])
+    c=float(list[2])
+    d=float(list[3])
+    e=float(list[4])
+    print("")
+    print(" -- Variables --")
+    time.sleep(buffer / 2)
+    print("a = ",a)
+    time.sleep(buffer / 2)
+    print("b = ",b)
+    time.sleep(buffer / 2)
+    print("c = ",c)
+    time.sleep(buffer / 2)
+    print("A = ",d)
+    time.sleep(buffer / 2)
+    print("B = ",e)
+    time.sleep(buffer / 2)
+    print("")
+    time.sleep(buffer / 2)
+
+    for i in list:
+        if i == 0.0:
+            strikes = strikes + 1
+    if strikes >= 4 or a+b+c==0: # A right-angled triangle cannot be solved with only one known value, or no known side values.
+        print("Not enough information given to solve this RAT. Restarting.")
+        continue
+
+    print(" -- Control Variables --")
+    time.sleep(buffer / 2)
+    print("1. " + controlLetter1)
+    time.sleep(buffer / 2)
+    print("2. " + controlLetter2)
+    time.sleep(buffer / 2)
+    print("")
+    # --PROCeSSING-- # 
+
+    d = math.radians(d)
+    e = math.radians(e) # angles have to be converted to radians for processing, then converted back.
+    print(" ________  ________  ___       ________  ___  ___  ___       ________  _________  ___  ________   ________                 ")
+    time.sleep(buffer / 2)
+    print("||   ____|||   __  |||  |     ||   ____|||  |||  |||  |     ||   __  |||___   ___|  |||   ___  |||   ____|                ")
+    time.sleep(buffer / 2)
+    print("| |  |___|| |  |||  | |  |    | |  |___|| |  |  | |  |    | |  |||  ||___ |  |_| |  | |  | |  | |  |___|                ")
+    time.sleep(buffer / 2)
+    print(" | |  |    | |   __  | |  |    | |  |    | |  |  | |  |    | |   __  |   | |  | | |  | |  | |  | |  |  ___              ")
+    time.sleep(buffer / 2)
+    print("  | |  |____| |  | |  | |  |____| |  |____| |  |  | |  |____| |  | |  |   | |  | | |  | |  | |  | |  |||  | ___ ___ ___ ")
+    time.sleep(buffer / 2)
+    print("   | |_______| |__| |__| |_______| |_______| |_______| |_______| |__| |__|   | |__| | |__| |__| |__| |_______|__|__|__|")
+    time.sleep(buffer / 2)
+    print("    ||_______|||__|||__|||_______|||_______|||_______|||_______|||__|||__|    ||__|  ||__|||__| ||__|||_______||__||__||__|")
+    time.sleep(buffer / 2)
+    print("")
+    time.sleep(buffer + 3)
+    if "a" in controlLetter1 :
+        if "b" in controlLetter2 :
+            c = (a**2.0 + b**2.0)**0.5
+            print("c = (a^2 + b^2)^0.5 ")
+            d = (math.asin(b/c))
+            print("A = asin(b/c)")
+            e = (math.pi/2) - d #easier way to do it rather than using asin
+            print("B = 90 - A")
+        elif "c" in controlLetter2:
+            b = (c**2 - a**2)**0.5
+            print("b = (c^2 - a^2)^0.5")
+            d = (math.asin(b/c))
+            print("A = asin(b/c)")
+            e = (math.pi/2) - d
+            print("B = 90 - A")
+        elif "A" in controlLetter2:
+            b = (math.tan(d))*a
+            print("b = tan(A)*a")
+            c = (a**2.0 + b**2.0)**0.5
+            print("c = (a^2 + b^2)^0.5 ")
+            e = (math.pi/2) - d
+            print("B = 90 - A")           
+        elif "B" in controlLetter2:
+            b = a/(math.tan(e))
+            print("b = a / tan(B)")
+            c = (a**2.0 + b**2.0)**0.5
+            print("c = (a^2 + b^2)^0.5 ")
+            d = (math.pi/2) - e
+            print("A = 90 - B")   
+    elif "b" in controlLetter1:
+        if "c" in controlLetter2:
+            a = (c**2 - b**2)**0.5
+            print("a = (c^2 - b^2)^0.5")
+            d = (math.asin(b/c))
+            print("A = asin(b/c)")
+            e = (math.pi/2) - d
+            print("B = 90 - A")
+        elif "A" in controlLetter2:
+            a = b/(math.tan(d))
+            print("a = b/tan(A)")
+            c = (a**2.0 + b**2.0)**0.5
+            print("c = (a^2 + b^2)^0.5 ")
+            e = (math.pi/2) - d
+            print("B = 90 - A")   
+        elif "B" in controlLetter2:
+            a = (math.tan(e))*b
+            print("a = tan(B)*b")
+            c = (a**2.0 + b**2.0)**0.5
+            print("c = (a^2 + b^2)^0.5 ")
+            d = (math.pi/2) - e
+            print("A = 90 - B") 
+    elif "c" in controlLetter1:
+        if "A" in controlLetter2:
+            b= (math.sin(d))*c
+            print("b = sin(A)*c")
+            a = (c**2.0 - b**2.0)**0.5
+            print("a = (c^2 - b^2)^0.5 ")
+            e = (math.pi/2) - d
+            print("B = 90 - A")   
+        if "B" in controlLetter2:
+            a = (math.sin(e))*c
+            print("a = sin(B)*c")
+            b = (c**2.0 - a**2.0)**0.5
+            print("b = (c^2 - a^2)^0.5 ")
+            d = (math.pi/2) - e
+            print("A = 90 - B") 
+    d = math.degrees(d)
+    e = math.degrees(e)
+
+    print("")
+    print(" -- RAT Values --")
+    time.sleep(buffer / 2)
+    print("a = ",a)
+    time.sleep(buffer / 2)
+    print("b = ",b)
+    time.sleep(buffer / 2)
+    print("c = ",c)
+    time.sleep(buffer / 2)
+    print("A = ",d)
+    time.sleep(buffer / 2)
+    print("B = ",e)
+    time.sleep(buffer / 2)
+
+    draw(a,b,c,d,e)
+    i = random.randint(0,3)
+    rat_amt += 1
+    rat_name = index[i] + str(rat_amt)
+    print("")
+    print("This RAT's name: ", rat_name )
+    rat_names.append(index[i] + str(rat_amt))
+    rat_values_a.append(str(a))
+    rat_values_b.append(str(b))
+    rat_values_c.append(str(c))
+    rat_values_d.append(str(d))
+    rat_values_e.append(str(e))
+    while True:
+        userinput = str(input("Type the name of a RAT to view its properties. Type 'rats' to view all RATs.  Type nothing and press enter to make a new RAT. "))
+        if userinput == "rats":
+            print(rat_names)
+        elif not userinput:
+            print("")
+            print("--NEW RAT--")
+            time.sleep(buffer)
+     
+            break
+        else:
+            print("")
+            for i in range(len(rat_names)):
+                if userinput == rat_names[i]:
+                    print(rat_names[i])
+                    print("a = ", rat_values_a[i])
+                    print(rat_values_b[i])
+                    print(rat_values_c[i])
+                    print(rat_values_d[i])
+                    print(rat_values_e[i])
+                    print("")
+
+                continue
+        
+    time.sleep(0.1)
+
+time.sleep(10) # keps the window from closing if program is run directly from file explorer
